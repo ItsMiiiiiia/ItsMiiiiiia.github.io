@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaotong Wang | Full-Stack Developer</title>
+    <style>
+        :root {
+            --bg: #f7f9fc;
+            --text: #222;
+            --subtext: #666;
+            --card: #fff;
+            --btn: #2e82dd;
+            --btn-hover: #1a6bc2;
+        }
+        .dark {
+            --bg: #121212;
+            --text: #eee;
+            --subtext: #aaa;
+            --card: #1e1e1e;
+            --btn: #4dabf7;
+            --btn-hover: #339af0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 600px;
+            background: var(--card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: background 0.3s;
+        }
+        .toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: var(--btn);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        h2 {
+            font-size: 22px;
+            color: var(--subtext);
+            font-weight: normal;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 0.8s 0.2s forwards;
+        }
+        .bio {
+            font-size: 16px;
+            color: var(--subtext);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 0.8s 0.4s forwards;
+        }
+        .links a {
+            display: inline-block;
+            margin: 8px 12px;
+            padding: 12px 24px;
+            background: var(--btn);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 0.8s 0.6s forwards;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .links a:hover {
+            background: var(--btn-hover);
+            transform: translateY(-3px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle" onclick="document.body.classList.toggle('dark')">
+        Toggle Dark Mode
+    </button>
+
+    <div class="container">
+        <h1>Xiaotong Wang</h1>
+        <h2>Full-Stack Developer</h2>
+        <p class="bio">
+            Passionate about building beautiful, functional web experiences. I love coding, designing, and bringing ideas to life with clean, modern tech.
+        </p>
+        <div class="links">
+            <a href="https://github.com/ItsMiiiiia" target="_blank">GitHub</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="mailto:contact@example.com">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        // 记住用户的深色模式偏好
+        if (localStorage.getItem('dark') === 'true') {
+            document.body.classList.add('dark');
+        }
+        document.querySelector('.toggle').addEventListener('click', () => {
+            localStorage.setItem('dark', document.body.classList.contains('dark'));
+        });
+    </script>
+</body>
+</html>
